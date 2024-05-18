@@ -1,0 +1,15 @@
+<h3 class="text-center mt-4">Return Request</h3>
+<div class="d-flex justify-content-center align-items-center  mt-5">
+    
+    <form [formGroup]="confirmForm" (ngSubmit)="onSubmit() ">
+        <div class="form-group">
+            <label>Comments:</label>
+            <textarea formControlName="comments" autofocus cols="100" rows="3" class="form-control" required ></textarea>
+        </div>
+        
+        <button  class="btn btn-success mt-4">Confirm Return</button>
+
+    </form>
+
+</div>
+

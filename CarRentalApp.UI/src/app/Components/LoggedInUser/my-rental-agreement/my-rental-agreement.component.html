@@ -1,0 +1,37 @@
+<h4 class="text-center mt-3">Agreements</h4>
+<table class="table table-striped mt-4 table-bordered">
+    <thead>
+        <tr>
+            <th>Maker</th>
+            <th>Model</th>
+            <th>Rent Start Date</th>
+            <th>Duration(Days)</th>
+            <th>Total Cost</th>
+            <th>Action</th>
+            <th>
+                Status
+            </th>
+        </tr>
+
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let agreement of userRentalAgreements">
+            <!-- show only those agreements whose return status is false -->
+            <tr *ngIf="userRentalAgreements.length">
+                <td>{{agreement.maker}}</td>
+                <td>{{agreement.model}}</td>
+                <td>{{agreement.rentStartDate}}</td>
+                <td>{{agreement.duration}} </td>
+                <td>{{agreement.totalCost | currency:'INR'}} </td>
+                <td><button [disabled]="agreement.returnStatus==1" class="btn btn-success" (click)="returnRequest(agreement.id)">Request Return</button></td>
+                <td>
+                    <h4 *ngIf="agreement.returnStatus==1" class="text-success">Return Initiated</h4>
+                    
+                </td>
+                
+    
+            </tr>
+        </ng-container>
+        
+    </tbody>
+</table>
