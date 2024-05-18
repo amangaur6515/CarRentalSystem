@@ -1,0 +1,26 @@
+<div class="card mt-5">
+    <div class="card-body">
+        <div class="text-center">
+            <h3 class="card-title">Maker: {{car.maker}}</h3>
+            <h3 class="card-body">Model: {{car.model}}</h3>
+            <h3>Price: {{car.rentalPrice | currency: 'INR'}}</h3>
+
+        </div>
+    </div>
+  </div>
+ 
+
+  <div class="text-center container col-6 mt-5">
+    <form class="form" [formGroup]="rentForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="duration" >Rent Duration</label>
+            <input formControlName="duration" id="duration" [class.is-invalid]="duration.invalid && duration.touched" autofocus class="form-control" type="number" placeholder="Specify the rent duration in days" required>
+            <div *ngIf="duration.invalid && duration.touched">
+                <small *ngIf="duration.errors?.['required']" class="text-danger">Duration is required</small>
+            </div>
+        </div>
+        <button [disabled]="rentForm.invalid" class="btn btn-info mt-3">Next</button>
+      </form>
+  </div>
+  
+  

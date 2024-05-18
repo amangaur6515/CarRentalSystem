@@ -1,0 +1,31 @@
+<h4 class="text-center mt-3">Cars Under Inspection</h4>
+<table class="table table-hover  mt-4 table-bordered">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Maker</th>
+            <th>Model</th>
+            <th class="w-50">Action</th>
+            
+            
+        </tr>
+
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let carInspection of carInspections">
+            <!-- show only those agreements whose return status is false -->
+            <tr>
+                <td>{{carInspection.userId}}</td>
+                <td>{{carInspection.maker}}</td>
+                <td>{{carInspection.model}}</td>
+                <td>
+                    
+                    <button  class="btn btn-success mx-2 md-2" (click)="inspectionCompleted(carInspection.carId)" >Inspection Completed</button>
+                </td>
+                
+            </tr>
+
+        </ng-container>
+        
+    </tbody>
+</table>

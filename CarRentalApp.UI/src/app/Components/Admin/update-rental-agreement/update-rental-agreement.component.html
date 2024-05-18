@@ -1,0 +1,13 @@
+<h3 class="text-center">Edit RentalAgreement</h3>
+<div class="text-center container col-6 mt-5">
+    <form class="form" [formGroup]="editRentalAgreementForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="duration" >Rent Duration</label>
+            <input formControlName="duration" id="duration" [class.is-invalid]="duration.invalid && duration.touched" autofocus class="form-control" type="number" placeholder="Specify the rent duration in days" required>
+            <div *ngIf="duration.invalid && duration.touched">
+                <small *ngIf="duration.errors?.['required']" class="text-danger">Duration is required</small>
+            </div>
+        </div>
+        <button type="submit" [disabled]="editRentalAgreementForm.invalid" class="btn btn-primary mt-3">Submit</button>
+      </form>
+  </div>

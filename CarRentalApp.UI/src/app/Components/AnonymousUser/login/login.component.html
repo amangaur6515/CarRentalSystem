@@ -1,0 +1,31 @@
+<h3 class=" mt-3 mb-3">Login</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-6 ">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="border shadow-lg mt-5 rounded-5" style="padding: 10%;">
+                <div class="form-group mt-2">
+                    <label>Username: </label>
+                    <input autofocus [class.is-invalid]="username.invalid && username.touched" formControlName="username" type="text" class="form-control" placeholder="Email" >
+                    <div *ngIf="username.invalid && username.touched">
+                        <small *ngIf="username.errors?.['required']" class="text-danger">Username  is required</small>
+                    </div>
+                </div>
+                <div class="form-group mt-3">
+                    <label>Password</label>
+                    <input formControlName="password" [class.is-invalid]="password.invalid && password.touched"  type="password" class="form-control" placeholder="Password" required>
+                    <div *ngIf="password.invalid && password.touched">
+                        <small *ngIf="password.errors?.['required']" class="text-danger">Password is required</small>
+                    </div>
+                </div>
+                
+                
+            
+                <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary mt-3">
+                    Login
+                </button>
+             
+            </form>
+
+        </div>
+    </div>
+</div>
